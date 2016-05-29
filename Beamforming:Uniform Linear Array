@@ -7,10 +7,13 @@ clc;
 %%   Parameters
 
 % Carrier frequency (Hz)
-fc = 3e8; % Carrier frequency (Hz)
+fc = 3e8; 
 
 % Number of snapshots
 Nb = 1000; 
+
+%Speed ol light(m/s)
+c=3e8;
 
 %the wavelength of the received signal
 wavelength = 3e8/fc;     
@@ -38,7 +41,7 @@ sigma = sqrt((A^2)/(2*10^(snr/10)));
 %Number of signals
 M = length(theta);
 
-%BPSK modulated signal
+%source vector
 for k=1:M 
     D(k,:) = randint(1,Nb);
     S(k,:) =A*(2*D(k,:) - 1);
@@ -48,6 +51,8 @@ end
 
 %the electrical phase shift from element to element along the array
 phi=beta*d*cos(theta*pi/180);
+
+%matrix of steering vectors
 for i=1:M
 for k=1:N
     SteeringVector(k,i)= exp((k-1)*1i*phi(i));
