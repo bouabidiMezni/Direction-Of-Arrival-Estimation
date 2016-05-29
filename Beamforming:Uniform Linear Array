@@ -1,3 +1,84 @@
 -------------------------------------------------------------------------------------------------------------------------------------------
-                                                   Beamforming:Uniform Linear Array                                                            
+                                                        Beamforming:Uniform Linear Array                                                            
 -------------------------------------------------------------------------------------------------------------------------------------------
+close all;
+clear all;
+clc;
+%%   Parameters
+
+% Carrier frequency (Hz)
+fc = 3e8; % Carrier frequency (Hz)
+
+% Number of snapshots
+Nb = 1000; 
+
+wavelength = 3e8/fc;     
+
+% element spacing
+d = 0.5*wavelength;  
+
+% Number of antennas 
+N = 10; 
+
+%Wavenumber
+beta=2*pi/wavelength;               
+
+A = 1;
+
+%SNR en db
+snr = 5;
+
+% Direction of Arrival
+theta = [30 80];
+
+%Variance of noise
+sigma = sqrt((A^2)/(2*10^(snr/10)));
+
+%Number of signals
+M = length(theta);
+
+%BPSK modulated signal
+for k=1:M 
+    D(k,:) = randint(1,Nb);
+    S(k,:) =A*(2*D(k,:) - 1);
+end   
+
+%%  The code of Beamforming
+phi=beta*d*cos(theta*pi/180);
+for i=1:M
+for k=1:N
+    DirectionnelVector(k,i)= exp((k-1)*1i*phi(i));
+end
+end
+%
+B = (sigma^2)*(randn(N,Nb)+j*randn(N,Nb))/sqrt(2);
+X = DirectionnelVector*S+B;
+
+% Matrice de covariance des signaux reçus
+Rxx = X*X'/Nb;
+
+theta1=[0:180];
+for i=1:length(theta1)
+    phi1 = 2*pi*d*cos(theta1(i)*pi/180);
+    A1=zeros([N 1]);
+    for k=1:N
+        A1(k,1)= exp((k-1)*1i*phi1);
+    end;
+    mubf(i)= real(diag(A1'*Rxx*A1))/(N^2);
+end;
+
+
+figure(1);
+plot(theta1,10*log10(mubf));
+title('Pseudo-spectre par Beamforming appliqué à un réseau ULA');
+xlabel('Angle [degré]');
+ylabel('PBeamforming [dB]');
+grid on;
+
+
+
+
+
+
+
+
