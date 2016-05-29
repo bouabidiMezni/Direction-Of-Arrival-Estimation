@@ -6,7 +6,7 @@ The problem of estimating direction-of-arrivals of multiple plane waves impingin
 
 This work is dedicated for person who deal with Direction Of Arrival Estimation in their thesis.
 
-This project implements directions of arrival estimation techniques:Subspace and the Non-Subspace methods . MATLAB is used for simulating the algorithms.Subspace methods are MUSIC , Root-MUSIC and ESPRIT . Non-Subspace methods are Beamforming and capon.
+We implement in here directions of arrival estimation techniques:Subspace and the Non-Subspace methods . MATLAB is used for simulating the algorithms.Subspace methods are MUSIC , Root-MUSIC and ESPRIT . Non-Subspace methods are Beamforming and capon.
 
 
 
