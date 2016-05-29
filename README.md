@@ -16,7 +16,7 @@ The antenna array is linear array,the N elements of which is omni-directional,th
 The signal, whose number M is known , is non-associated narrowband signal, and that the signals from far-field received by the linear
  array are plane waves.
 
-The number of sources M is strictly less than the number of antennas (M<N).
+The number of sources M is strictly less than the number of antennas (M<N). 
 
 The noise is white Gaussian noise, which is zero mean and (sigma^2) variance, independent of each other,and is not relevant with signals.
 
