@@ -58,12 +58,13 @@ for k=1:N
     SteeringVector(k,i)= exp((k-1)*1i*phi(i));
 end
 end
-% Noise 
+% Additive noise
 B = (sigma^2)*(randn(N,Nb)+j*randn(N,Nb))/sqrt(2);
 
+%Array output:signal plus noise
 X = SteeringVector*S+B;
 
-% Matrice de covariance des signaux reçus
+% Estimation of the spatial correlation matrix of the observed signal
 Rxx = X*X'/Nb;
 
 theta1=[0:180];
