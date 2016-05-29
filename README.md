@@ -1,5 +1,5 @@
 # Direction-Of-Arrival-Estimation
-We are Imen BOUABIDI and Ameni, a telecommunication engineering students in the National Engineering School of Tunis.
+We are Imen BOUABIDI and Ameni MEZNI a telecommunication engineering students in the National Engineering School of Tunis.
 
 The problem of estimating direction of arrivals of multiple plane waves impinging on an arbitrary array of sensors has paid a lot of attention. It has played an important role in many applications including wireless communication , radar and sonar, radio astronomy,etc.
 
@@ -11,7 +11,7 @@ MATLAB is used for simulating the algorithms.
 
 To facilitate the analysis, it is necessary to make idealistic assumptions of the antennas and signals.
 Assuming that:
-The antenna array is linear, its N elements are omni-directional, the gain is equal and there isn't inconsistent, mutual coupling or other factors.
+The antenna array is linear. Its N elements are omni-directional.
 
 The signals, whose number M is known, are non-associated narrowband signal. The signals, from far-field, received by the linear
 array are plane waves.
