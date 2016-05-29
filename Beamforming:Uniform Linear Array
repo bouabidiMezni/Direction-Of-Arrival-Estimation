@@ -12,6 +12,7 @@ fc = 3e8; % Carrier frequency (Hz)
 % Number of snapshots
 Nb = 1000; 
 
+%the wavelength of the received signal
 wavelength = 3e8/fc;     
 
 % element spacing
@@ -44,15 +45,18 @@ for k=1:M
 end   
 
 %%  The code of Beamforming
+
+%the electrical phase shift from element to element along the array
 phi=beta*d*cos(theta*pi/180);
 for i=1:M
 for k=1:N
-    DirectionnelVector(k,i)= exp((k-1)*1i*phi(i));
+    SteeringVector(k,i)= exp((k-1)*1i*phi(i));
 end
 end
-%
+% Noise 
 B = (sigma^2)*(randn(N,Nb)+j*randn(N,Nb))/sqrt(2);
-X = DirectionnelVector*S+B;
+
+X = SteeringVector*S+B;
 
 % Matrice de covariance des signaux reçus
 Rxx = X*X'/Nb;
