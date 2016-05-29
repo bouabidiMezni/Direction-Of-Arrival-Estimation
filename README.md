@@ -18,5 +18,5 @@ The signal, whose number M is known , is non-associated narrowband signal, and t
 
 The number of sources M is strictly less than the number of antennas (M<N).
 
-The noise is white Gaussian noise, which is zero mean and (sigma^2) variance, and the noise independent of each other,and is not relevant with signals.
+The noise is white Gaussian noise, which is zero mean and (sigma^2) variance, independent of each other,and is not relevant with signals.
 
