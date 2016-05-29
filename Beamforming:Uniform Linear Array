@@ -29,6 +29,7 @@ N = 10;
 %Wavenumber
 beta=2*pi/wavelength;               
 
+%signal amplitude
 A = 1;
 
 %SNR(dB)
